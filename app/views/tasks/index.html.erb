@@ -1,0 +1,22 @@
+<div class="index-container">
+<h1>My tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+  <li id="list">
+    <div>
+      <% if (task.completed == false) %>
+        <%= check_box_tag "", "value", false %>
+      <% else %>
+        <%= check_box_tag "", "value", true %>
+      <%end%>
+      <%=link_to task[:title], task_path(task[:id])%>
+    <%= link_to '<i class="fa fa-trash" aria-hidden="true""></i>'.html_safe, task_path(task),
+      method: :delete,
+      data: { confirm: "Delete?" } %>
+    <% end %></div>
+  </li>
+</ul>
+
+<%= link_to "Create a new task", new_path %>
+
+</div>

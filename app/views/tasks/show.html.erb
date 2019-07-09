@@ -1,0 +1,24 @@
+<div class="show-container">
+
+<h1><%=@task.title%></h1>
+
+<div class="button">
+<button type="button" class="btn btn-info"><%=link_to "Edit this task", edit_path%></button>
+</div>
+
+<p class="alert alert-secondary"><%=@task.details%></p>
+
+  <p>
+  <% if (@task.completed == false) %>
+    <%= check_box_tag "", "value", false %>
+    <%= "Task is not completed yet"%>
+  <% else %>
+    <%= check_box_tag "", "value", true %>
+    <%= "Task is completed"%>
+    <%end%>
+  </p>
+
+
+<%=link_to "Back to list", tasks_path%>
+
+</div>
